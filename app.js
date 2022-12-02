@@ -14,7 +14,7 @@ const app = express();
 
 // Crete a const that saves the mongoDB URI
 const MONGO_URI =
-  "mongodb+srv://testingAtlas:testingAtlas@cluster0.9ew3xxs.mongodb.net/test";
+  "mongodb+srv://testingAtlas:testingAtlas@cluster0.9ew3xxs.mongodb.net/testingAtlas?retryWrites=true&w=majority";
 
 /**
  * This will assign an automatic port by the OS we use it in production if we
@@ -24,16 +24,13 @@ const MONGO_URI =
  */
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect(
-  "mongodb+srv://testingAtlas:testingAtlas@cluster0.9ew3xxs.mongodb.net/test",
-  (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Connection to the Data Base completed.");
-    }
+mongoose.connect(MONGO_URI, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Connection to the Data Base completed.");
   }
-);
+});
 
 app.listen(PORT, () => {
   console.log(`The server is running successfully in the port ${PORT}`);
