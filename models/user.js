@@ -10,6 +10,7 @@ const userSchema = mongoose.Schema({
   age: { type: Number, required: true },
   email: { type: String, required: true },
   phone: { type: Number, required: true },
+  date: { type: Date, default: Date.now() },
 });
 
-export default mongoose.model("user", userSchema);
+export default mongoose.model("users", userSchema);
