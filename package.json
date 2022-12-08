@@ -1,0 +1,26 @@
+{
+  "name": "ciclo4",
+  "version": "1.0.0",
+  "description": "- [Camilo Alejandro Nossa](https://github.com/alejandronoss1017) - [Christian Salazar Valencia]() - [José Eduardo González](https://github.com/JoseGonzalezMican) - [Jorge Mario Benjumea](https://github.com/jorgembenjumea)  - [Johan Santiago Jiménez]()",
+  "main": "app.js",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0",
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejandronoss1017/Ciclo4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alejandronoss1017/Ciclo4/issues"
+  },
+  "homepage": "https://github.com/alejandronoss1017/Ciclo4#readme"
+}
