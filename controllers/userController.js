@@ -6,7 +6,7 @@ export async function createUser(req, res) {
   const { password } = user;
   let document = null;
 
-  user.password = await bcrypt.hash(this.password, 10);
+  user.password = await bcrypt.hash(password, 10);
 
   try {
     document = await userModel.create(user);
