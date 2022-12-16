@@ -15,19 +15,51 @@ export async function createUser(req, res) {
     res.json(error.message);
     return;
   }
-
   res.status(201);
   res.json(document);
 }
 
 export async function readUser(req, res) {
-  const { id } = req.params;
+  const id = req.params.id;
   let document;
+  if (req.params.id === "all") {
+    next();
+  } else {
+    try {
+      document = await userModel.findById(id);
+    } catch (error) {
+      res.status(400);
+      res.json(error.message);
+      return;
+    }
+    res.status(200);
+    res.json(document);
+  }
+}
+
+export async function getAll(req, res, next) {
+  let document;
+
   try {
-    document = await userModel.findOne({ id });
+    document = await userModel.find({});
   } catch (error) {
     res.status(400);
     res.json(error.message);
+    return;
+  }
+  res.status(200);
+  res.json(document);
+}
+
+export async function getAllByCareer(req, res) {
+  const name = req.params.name;
+  let document;
+
+  try {
+    document = await userModel.find({ career: name });
+  } catch (error) {
+    res.status(400);
+    res.json(document);
     return;
   }
   res.status(200);
