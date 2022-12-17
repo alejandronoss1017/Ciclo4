@@ -23,7 +23,7 @@ const userSchema = mongoose.Schema(
       lowercase: true,
       match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
     },
-    password: { type: String, require: true },
+    password: { type: String, require: true, minlenght: 4, maxlenght: 40 },
   },
   { timestamps: true }
 );
