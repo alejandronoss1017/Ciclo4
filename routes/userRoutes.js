@@ -6,11 +6,20 @@ import {
   updateUser,
   patchUser,
 } from "../controllers/userController.js";
+import mwTest from "../middlewares/mwCreate.js";
 
 const userRouter = express.Router();
 
 //CREATE
-userRouter.post("/new", (req, res) => {
+/**
+ * Here we pass our middleware function, so it only will be
+ * executed when the server gets a http request for this endpoint
+ * or route, will be executed before the 'createUser' function.
+ *
+ * That's how a middleware works, will be executed before an another
+ * function.
+ */
+userRouter.post("/new", mwTest, (req, res) => {
   createUser(req, res);
 });
 

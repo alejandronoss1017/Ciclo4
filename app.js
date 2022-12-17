@@ -8,6 +8,7 @@ import userRouter from "./routes/userRoutes.js";
 
 // We import the API for works with MongoDB
 import mongoose from "mongoose";
+import sayHello from "./middlewares/testing.js";
 
 // Creates an express application
 const app = express();
@@ -42,6 +43,19 @@ app.listen(PORT, () => {
  */
 app.use(express.json());
 
+/**
+ * A middleware will executed before any other function in the program
+ * when we use the built in method '.use()', in here we don't specify a
+ * route so it will be execute for all http request.
+ *
+ * If wanna try it just run the server and send a http request, it will print
+ * 'hello world' in the terminal, this is a global middleware, that's the reason
+ * for it will be executed every http request.
+ *
+ * There's also a specific middleware for some endpoints or routes, check the
+ * middleware in the 'create user' endpoint.
+ */
+app.use(sayHello);
 /**
  * Use the express.Router class to create modular, mountable route handlers.
  * A Router instance is a complete middleware and routing system;
